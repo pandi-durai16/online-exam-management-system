@@ -1,0 +1,62 @@
+<head>
+    <title>Exam</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script>
+        const EXAM_TIME = Number("{{ exam_time_seconds }}");
+    </script>
+
+    <script src="/static/timer.js" defer></script>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- TIMER -->
+    <div id="timer" class="timer-box">
+        ⏳ Time Left: <span id="time">00:00</span>
+    </div>
+
+    <h2>Online Examination</h2>
+
+    <!-- EXAM FORM -->
+    <form method="post" action="/submit_exam">
+
+        {% for q in questions %}
+        <div class="card">
+            <p><b>{{ loop.index }}. {{ q['question'] }}</b></p>
+
+            <label class="option">
+                <input type="radio" name="{{ q['id'] }}" value="a">
+                {{ q['a'] }}
+            </label><br>
+
+            <label class="option">
+                <input type="radio" name="{{ q['id'] }}" value="b">
+                {{ q['b'] }}
+            </label><br>
+
+            <label class="option">
+                <input type="radio" name="{{ q['id'] }}" value="c">
+                {{ q['c'] }}
+            </label><br>
+
+            <label class="option">
+                <input type="radio" name="{{ q['id'] }}" value="d">
+                {{ q['d'] }}
+            </label>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn submit-btn">
+            Submit Exam
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

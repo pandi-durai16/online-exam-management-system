@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Add New Student</h2>
+
+    {% if error %}
+        <div class="error-box">{{ error }}</div>
+    {% endif %}
+
+    <form method="post">
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" name="username" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="text" name="password" required>
+        </div>
+
+        <button class="btn">Add Student</button>
+    </form>
+
+    <br>
+    <a href="/admin" class="btn">⬅ Back</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ subject }} Leaderboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>🏆 {{ subject }} Leaderboard</h2>
+
+    {% if leaders %}
+    <table class="leaderboard-table">
+        <tr>
+            <th>Rank</th>
+            <th>Student</th>
+            <th>Score (%)</th>
+        </tr>
+
+        {% for l in leaders %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ l['username'] }}</td>
+            <td>{{ l['percentage'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No results available yet.</p>
+    {% endif %}
+
+    <br>
+    <a href="/student" class="btn">⬅ Back to Dashboard</a>
+</div>
+
+</body>
+</html>

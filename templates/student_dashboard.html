@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Exam</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Online Exam Portal</h1>
+    <p class="subtitle">Welcome Student 👋</p>
+
+    <div class="card">
+        <h2>Available Exams</h2>
+{% for s in subjects %}
+<div class="exam-box">
+    <div>
+        <h3>{{ s['name'] }} Exam</h3>
+        <p>• Time: {{ exam_time }}</p>
+    </div>
+
+    <div>
+        <a href="/exam/{{ s['id'] }}" class="btn">
+            Start Exam
+        </a>
+
+        <a href="/leaderboard/{{ s['id'] }}" class="btn">
+            View Leaderboard
+        </a>
+    </div>
+</div>
+{% endfor %}
+
+    </div>
+</div>
+
+</body>
+</html>

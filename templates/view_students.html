@@ -1,0 +1,15 @@
+{% for s in students %}
+<div class="exam-box">
+    <span>👤 {{ s['username'] }}</span>
+
+    <form
+        method="post"
+        action="/admin/delete-student/{{ s['id'] }}"
+        onsubmit="return confirm('Are you sure you want to delete this student?');"
+    >
+        <button class="btn" style="background:#e74c3c;">
+            Delete
+        </button>
+    </form>
+</div>
+{% endfor %}

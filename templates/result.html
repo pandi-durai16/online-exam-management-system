@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Exam Result</h1>
+
+    <div class="score-box">
+        <h2>Your Score: {{ score }}%</h2>
+    </div>
+
+    {% for q in details %}
+    <div class="question-card">
+        <h3>{{ loop.index }}. {{ q.question }}</h3>
+
+        {% for opt, text in [('a',q.a),('b',q.b),('c',q.c),('d',q.d)] %}
+            {% if opt == q.correct %}
+                <p class="correct">✔ {{ text }} (Correct)</p>
+            {% elif opt == q.selected %}
+                <p class="wrong">✖ {{ text }} (Your Answer)</p>
+            {% else %}
+                <p>{{ text }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+<br>
+<a href="/student" class="btn">
+    ⬅ Back to Dashboard
+</a>
+
+
+</body>
+</html>
